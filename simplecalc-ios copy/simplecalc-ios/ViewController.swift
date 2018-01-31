@@ -26,6 +26,7 @@ class ViewController: UIViewController {
     var numbers: [Int] = []
     var numCount : Int = 0
     var begin : Bool = false
+    var calcBank : [String] = []
     
 
     @IBAction func buttonPressed(_ sender: UIButton) {
@@ -78,6 +79,7 @@ class ViewController: UIViewController {
     
     @IBAction func equalPressed(_ sender: UIButton) {
         numbers.append(Int(self.display)!)
+        var result : Int
         self.begin = true
         switch self.op{
             case "%":
@@ -103,6 +105,18 @@ class ViewController: UIViewController {
                 self.display = "error occurred"
             
         }
+        result = Int(self.display)!
+        var entry : String = ""
+        if self.op == "count" || self.op == "avg" {
+            let oprator : String = self.op
+            for index in 0...numbers.count - 2 {
+                entry = entry + String(numbers[index]) + " \(oprator) "
+            }
+            entry = entry + String(numbers[numbers.count - 1]) + " = \(result)"
+        } else {
+            entry = String(self.numbers[0]) + self.op + String(self.numbers[1]) + " = " + String(result)
+        }
+        self.calcBank.append(entry)
         self.op = "="
         self.numbers = []
     }
@@ -123,22 +137,33 @@ class ViewController: UIViewController {
     @IBAction func factPressed(_ sender: UIButton) {
         self.op = "fact"
         var num : Int = Int(self.display)!
+        let orNum : Int = num
         var sum : Int = num
-        while num != 1 {
-            sum = sum * (num - 1)
-            num = num - 1
+        if num == 0 {
+            self.display = "1"
+            sum = 1
+        } else {
+            while num != 1 {
+                sum = sum * (num - 1)
+                num = num - 1
+            }
         }
         self.display = String(sum)
+        let entry : String = String(orNum) + " fact = \(sum)"
+        self.calcBank.append(entry)
+        
     }
     
     
-    
-
     override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destination = segue.destination as! HistoryViewController
+        destination.calcBank = calcBank
+    }
 
 
 }

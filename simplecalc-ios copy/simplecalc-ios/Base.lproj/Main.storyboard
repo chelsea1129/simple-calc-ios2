@@ -349,15 +349,17 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="jJB-DS-ana" firstAttribute="top" secondItem="DWW-xJ-M4Y" secondAttribute="top" constant="58" id="4qP-CY-i5G"/>
+                            <constraint firstItem="iz6-HB-X8a" firstAttribute="leading" secondItem="sYb-ZD-hz2" secondAttribute="leading" constant="20" id="FGV-Qp-jc4"/>
+                            <constraint firstItem="iz6-HB-X8a" firstAttribute="top" secondItem="sYb-ZD-hz2" secondAttribute="top" id="QIJ-ff-4af"/>
                             <constraint firstAttribute="bottom" secondItem="jJB-DS-ana" secondAttribute="bottom" constant="15" id="Ra6-4n-P4U"/>
-                            <constraint firstItem="iz6-HB-X8a" firstAttribute="leading" secondItem="sYb-ZD-hz2" secondAttribute="leading" constant="20" id="VgO-gJ-T0u"/>
                             <constraint firstItem="jJB-DS-ana" firstAttribute="leading" secondItem="sYb-ZD-hz2" secondAttribute="leading" constant="15" id="auF-kd-qVY"/>
-                            <constraint firstItem="jJB-DS-ana" firstAttribute="top" secondItem="iz6-HB-X8a" secondAttribute="bottom" constant="8" symbolic="YES" id="g7L-eD-Thg"/>
                             <constraint firstAttribute="trailing" secondItem="jJB-DS-ana" secondAttribute="trailing" constant="15" id="oXv-bC-Iqp"/>
-                            <constraint firstItem="iz6-HB-X8a" firstAttribute="top" secondItem="sYb-ZD-hz2" secondAttribute="top" id="vTH-XF-yLe"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="sYb-ZD-hz2"/>
                     </view>
+                    <connections>
+                        <outlet property="historyDisplay" destination="nvd-5T-dEk" id="hxJ-Ai-dRD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1rH-RD-isv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
